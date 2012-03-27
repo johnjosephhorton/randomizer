@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block head_content %}
+
+<script type="text/javascript">
+
+function startExperiment()
+{
+    $("#game").hide("blind");
+    $("#experiment").show("blind");
+}
+
+$(function() {
+    $("#experiment").hide();
+    setTimeout("startExperiment()", 30 * 1000);
+});
+</script>
+
+
+{% endblock %}
+
+
+{% block content %}
+
+<div id="game">
+<p><b>Please play the below game as we load the next step. The game will be interrupted once the next step is loaded.</b></p>
+<embed src="http://www.addictinggames.com/D78AQSAKQLQWI9/1298.swf" type="application/x-shockwave-flash" width="720" height="600"></embed>
+</div>
+<div id="experiment">
+
+<p>Thank you. The next step is now ready.</p>
+
+<p>You have been paired with another person, who is also reading these instructions now. Both of you have been given $1.00.
+You can choose to donate $0.50 to the other person; if you do so, the money will be doubled and the person will receive $1.00.
+
+<p>After both of you have made your decisions, you will find out each other's decisions.</p>
+
+<p><b>Would you like to donate $0.50 to the other person?</b><p>
+
+<form action="" method="post">
+    <input type="submit" name="Yes" label="Yes" value="Yes" />
+    <input type="submit" name="No" label="No" value="No" />
+</form>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+Thank you. Your confirmation code is <strong>{{ confirmation_code }}</strong>. Please enter this code on the HIT page.
+
+{% endblock %}

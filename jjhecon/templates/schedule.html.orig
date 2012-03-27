@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block head_content %}
+<script type="text/javascript">
+
+function appointmentTime()
+{
+    var now = new Date();
+
+    var apptTime = now;
+    apptTime.setTime(now.getTime() + 1000 * {{ seconds_till }});
+    return formattedTime(apptTime, false);
+}
+
+function formattedTime(aDate, showSeconds)
+{
+    var hour = aDate.getHours();
+    var min = aDate.getMinutes();
+    var sec = aDate.getSeconds();
+    var time = "";
+
+    if(hour == 0) hour = 12;
+    time = (hour > 12 ? hour - 12 : hour) + ":" +
+         (min < 10 ? "0" : "") + min;
+    if (showSeconds == true)
+    {
+        time = time + ":" + (sec < 10 ? "0" : "") + sec; 
+    }
+    time = time + " " + (hour > 12 ? "PM" : "AM");  
+    
+    return time;
+}
+
+function setTime()
+{
+	$("#current_time").text(currentTime());	
+}
+
+function currentTime()
+{
+	var now = new Date();
+	return formattedTime(now, true);
+}
+
+$(function() {
+	// Write the appointment time once
+    $("#appointment").text(appointmentTime());
+
+    // Show the current time every second
+    setInterval("setTime()", 1000);
+});
+</script>
+
+
+{% endblock %}
+
+{% block content %}
+<p>You must click on the below link within {{ minutes }} minutes of <span id="appointment"></span> 
+ (current time is <span id="current_time"></span>).</p>
+
+<p><a href="{{ url }}">Link</a></p>
+
+{% endblock %}

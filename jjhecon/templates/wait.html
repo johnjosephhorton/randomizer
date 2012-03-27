@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block head_content %}
+
+<script type="text/javascript">
+var confirmationCodeDisplayed = false;
+
+function startExperiment()
+{
+    $("#game").hide("blind");
+    $("#experiment").show("blind");
+}
+
+function checkIfReady()
+{
+	var data = {counter:counter}
+	var args = {type:"POST", url:"/check_conf_code/", data:data, complete:processResponse}
+}
+
+function processResponse()
+{
+	if (status == "success")
+	{
+		var confCode = res.responseText;
+		if (confCode.length != 0)
+		{
+			$("conf_code").text(confCode);
+			confirmationCodeDisplayed = true;
+			startExperiment();
+		}
+	}
+}
+	
+</script>
+
+
+{% endblock %}
+
+
+{% block content %}
+
+<div id="game">
+<p><b>Please play the below game as we load the next step. The game will be stopped once the next step is loaded.</b></p>
+<embed src="http://www.addictinggames.com/D78AQSAKQLQWI9/1298.swf" type="application/x-shockwave-flash" width="720" height="600"></embed>
+</div>
+<div id="experiment">
+
+<p>Thank you. Your confirmation code is <span style="font-weight: bold" id="conf_code"></span>. Please enter this code on the HIT page.</p>
+
+</div>
+
+{% endblock %}

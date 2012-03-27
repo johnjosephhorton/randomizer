@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+
+{% block head_content %}
+<script type="text/javascript">
+
+$(function() {
+    $("#landingurl").hide();
+    var options = {percent: 100};
+    $("#landingurl").show("blind");
+});
+</script>
+
+{% endblock %}
+
+{% block content %}
+
+{% if landing_url %}
+<div id="landingurl">
+<p>Your randomization has been registered. Copy the following URL for use in your experiment:</p>
+<p><a href="{{ landing_url }}">{{ landing_url }}</a></p>
+
+<p>You can also check the following private URL to get statistics on visits to the above URL.</p>
+
+<p><a href="{{ admin_url }}">{{ admin_url }}</a></p>
+
+</div>
+
+<p>You can create another randomization using the below form.</p>
+{% endif %}
+
+<p><h2>Create a multi-URL randomization</h2></p>
+
+<p>
+<form method="post" action="{{ action }}">
+    <table>
+        {{ form.as_table }}
+        <tr><td></td><td><input type="submit" value="Create redirection URL" /></td></tr>
+    </table>
+</form>
+</p>
+
+<h3>Notes</h3>
+<ul>
+    <li>URLs must be complete and separated by line breaks. For example:<br>
+    <br>
+    http://www.bing.com/<br>
+    http://www.google.com/<br>
+    http://www.yahoo.com/<br>
+    <br>
+    </li>
+    <li>If you check "stratify", the target URLs will cycle (e.g. 1, 2, 3, 1, 2, 3, 1, 2, 3) rather than randomize.</li>
+    <li>Once you submit your list of URLs, you will receive a URL that will redirect to the various URLs you entered.</li>
+</ul>
+
+{% endblock %}

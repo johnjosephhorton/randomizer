@@ -1,0 +1,15 @@
+body {
+  background-color: #F2F2F2;
+  font-size: 14px;
+  padding:20px;
+  margin:0px;
+  /* text-align: center; */
+font-family: arial, "lucida console", sans-serif;
+}
+
+div.padded {  
+padding-top: 5px;  
+padding-right: 5px;  
+padding-bottom: 5px;  
+padding-left: 5px;  
+}

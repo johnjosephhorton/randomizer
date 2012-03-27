@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>jQuery Dynamic Form Demo</title>
+		<style type="text/css">
+			form p > label{
+				display: block;
+				width: 150px;
+				float: left;
+				clear:left;
+			}
+			form p > span, fieldset > fieldset{
+				display: block;
+				float: left;
+				clear:left;
+			}
+			form p > input{
+				float: left;
+			}
+			span.inline{
+				display:inline;
+				clear:none;
+			}
+			
+		</style>
+		<script type="text/javascript" src="lib/jquery/jquery-1.3.2.js"></script>
+		<script type="text/javascript" src="lib/jquery/jquery-ui-1.7.2.custom.min.js"></script>
+		<script type="text/javascript" src="jquery-dynamic-form.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){	
+				$("#duplicate").dynamicForm("#plus", "#minus", {limit:5});
+				$("#duplicate2").dynamicForm("#plus2", "#minus2", {limit:4});
+				$("#duplicate3").dynamicForm("#plus3", "#minus3", {limit:3, createColor: 'yellow',removeColor: 'red'});
+			});
+		</script>
+	</head>
+	<body>
+		<h1>jQuery Dynamic Form</h1>
+		<form method="post" action="#">
+			<fieldset>
+				<legend> + and - are outside the duplicated node</legend>
+				<p><label for="nom">first name : </label><input id="nom" type="text" name="nom" size="30"></p>
+				<p><label for="prenom">last name : </label><input id="prenom" type="text" name="prenom" size="40"></p>
+				<p><label for="city">city : </label><input id="city" type="text" name="ville" size="50"></p>
+				<p id='duplicate'><label for="phone">telephone : </label><input id="phone" type="text" name="phone" size="50"></p>
+				<p><span><a id="minus" href="">[-]</a> <a id="plus" href="">[+]</a></span></p>
+			</fieldset>
+			<fieldset>
+				<legend> + and - are inside the duplicated node</legend>
+				<p><label for="nom2">first name : </label><input id="nom2" type="text" name="nom2" size="30"></p>
+				<p><label for="prenom2">last name : </label><input id="prenom2" type="text" name="prenom2" size="40"></p>
+				<p><label for="city2">city : </label><input id="city2" type="text" name="ville2" size="50"></p>
+				<p id='duplicate2'><label for="phone2">telephone : </label><input id="phone2" type="text" name="phone2" size="50"><span class="inline"><a id="minus2" href="">[-]</a> <a id="plus2" href="">[+]</a></span></p>
+			</fieldset>
+
+			<fieldset>
+				<legend> Multiple fields duplication</legend>
+				<p><label for="nom3">first name : </label><input id="nom3" type="text" name="nom3" size="30"></p>
+				<p><label for="prenom3">last name : </label><input id="prenom3" type="text" name="prenom3" size="40"></p>
+				<fieldset id="duplicate3">
+					
+				<legend> Address</legend>
+				<p><label for="address3">address : </label><input id="address3" type="text" name="adr3" size="30"></p>
+				<p><label for="postal3">postal code : </label><input id="postal3" type="text" name="postal_code3" size="10"></p>
+				<p><label for="city3">city : </label><input id="city3" type="text" name="ville3" size="50"></p>
+				</fieldset>
+				<p><span><a id="minus3" href="">[-]</a> <a id="plus3" href="">[+]</a></span></p>
+			</fieldset>
+		</form>
+	</body>
+</html>

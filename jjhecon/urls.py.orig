@@ -1,0 +1,21 @@
+from django.conf.urls.defaults import *
+
+urlpatterns = patterns('',
+    # Example:
+    
+    (r'^r/?$', 'jjhecon.randomizer.views.json_view'), # deprecate this
+    (r'^r/.json/?$', 'jjhecon.randomizer.views.json_view'),
+    (r'^r/.html/?$', 'jjhecon.randomizer.views.html_view'),
+    (r'^r/(\w+)/?$', 'jjhecon.randomizer.views.visit'),
+    (r'^r/a/(\w+)/?$', 'jjhecon.randomizer.views.admin'),
+    
+    (r'^wait/?$', 'jjhecon.scheduler.views.wait'),
+    
+    # person clicks link from MTurk and sees this page, which tells them what time to return.
+    (r'^s/schedule/?$', 'jjhecon.scheduler.views.schedule'),
+    
+    # person is visiting the page, which gives the confirmation code.
+    (r'^s/scheduled_visit/?$', 'jjhecon.scheduler.views.scheduled_visit'),
+        
+    (r'^s/sandbox/?$', 'jjhecon.randomizer.views.sandbox'),
+)

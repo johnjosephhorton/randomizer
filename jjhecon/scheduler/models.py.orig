@@ -1,0 +1,6 @@
+from google.appengine.ext import db
+
+class WaitVisit(db.Model):
+    hit_id = db.StringProperty()
+    assignment_id = db.StringProperty()
+    confirmation_code = db.StringProperty()

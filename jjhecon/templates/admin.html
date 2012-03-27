@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Admin Page</h2>
+
+<p>Below is some admin info on your experiment.</p>
+
+<p>Landing URL: <a href="{{ landing_url }}">{{ landing_url }}</a></p>
+
+<table>
+    <tr>
+        <th># Visits</th>
+        <th>URL</th>
+    </tr>
+    
+    {% for target in targets %}
+    <tr>
+        <td>{{ target.num_visits }}</td>
+        <td>{{ target.url }}</td>
+    </tr>
+
+    {% endfor %}
+
+</table>
+
+{% endblock %}
