@@ -1,7 +1,9 @@
 # Django settings for rankapp project.
 import os
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
+
+BASE_URL = 'http://unconfounded.appspot.com'
 
 ADMINS = (
     # ('Your Name', 'your_email@domain.com'),

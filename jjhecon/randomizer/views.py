@@ -10,9 +10,11 @@ from urlparse import urlparse, urlunparse, urljoin
 import jjhecon.settings
 from google.appengine.api import datastore_errors
 
-base_url = 'http://jjhecon.appspot.com/'
+#base_url = 'http://jjhecon.appspot.com/'
+base_url = jjhecon.settings.BASE_URL 
 #base_url = 'http://localhost:8082/'
 #ip_checking = False
+
 if jjhecon.settings.DEBUG == True:
     ip_checking = False
 else:
