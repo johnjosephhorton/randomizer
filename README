@@ -5,6 +5,10 @@ provide one URL to experimental subjects---they will be redirected at
 random to the two or more "treatment group" URLs that you specify.
 
 
+* To use: 
+  * Change jjhecon/randomizer/settings.py BASE_URL to your app 
+  * Visit http://<your app engine name>.appspot.com/r/.html/
+
 * License
 
 Copyright (c) 2012, John J. Horton
